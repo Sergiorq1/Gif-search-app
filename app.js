@@ -4,13 +4,16 @@ const express = require('express');
 // App Setup
 const app = express();
 
+// Tells express app that static (css and other styling) files will live in public folder
+app.use(express.static('public'));
+
 // Middleware
 const exphbs = require('express-handlebars');
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-  // Require tenorjs near the top of the file
+// Require tenorjs near the top of the file
 const Tenor = require("tenorjs").client({
   // Replace with your own key
   "Key": "GWOEY22DKUY7", // https://tenor.com/developer/keyregistration
